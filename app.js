@@ -14,7 +14,9 @@ app.use(cors())
 
 // ROUTES
 const postsRoute = require('./routes/posts');
+const authRoute = require('./routes/auth');
 app.use('/posts', postsRoute)
+app.use('/api/user', authRoute)
 
 //ROUTES
 app.get('/', (req, res) => {

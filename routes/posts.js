@@ -1,12 +1,14 @@
 const express = require('express')
 const router = express.Router()
+const verify = require('../verifyToken')
 
 const Post = require('../models/Posts')
 
-router.get('/', async (req, res) => {
+router.get('/', verify, async (req, res) => {
     try {
         const posts = await Post.find()
         res.json(posts)
+       
     } catch (error) {
         res.json(error)
     }
